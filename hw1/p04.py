@@ -1,18 +1,20 @@
 def c2i(c):
     return ord(c.lower()) - 96
 
-dollars = [1000, 500, 100, 50, 10, 1]
-results = []
-total = 0
-base = 1
-inp = input()
+def i2c(i):
+    if i == 0:
+        i = 26
+    return chr(i + 96)
 
-for i in reversed(range(3)):
-    total += base * c2i(inp[i])
-    base *= 26
+def decode(s, k):
+    s = c2i(s)
+    k = c2i(k)
+    if (s + k) % 2:
+        return i2c(s % k)
+    else:
+        return i2c((s * k) % 26).upper()
 
-for d in dollars:
-    results.append(str(total // d))
-    total = total % d
+cipher = input()[::-1]
+key = input()
 
-print(",".join(results))
+print(''.join([decode(cipher[i], key[i]) for i in range(3)]))
