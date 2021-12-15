@@ -1,1 +1,1 @@
-我寫錯 contest 了QAQ
+我寫錯 contest 了QAQ 我以為 week2 是 hw2
